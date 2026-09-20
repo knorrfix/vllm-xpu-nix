@@ -89,7 +89,6 @@ let
       opentelemetry-api
       opentelemetry-exporter-otlp
       opentelemetry-sdk
-      opentelemetry-semantic-conventions-ai
       outlines-core
       partial-json-parser
       pillow
