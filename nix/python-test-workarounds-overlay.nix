@@ -6,6 +6,25 @@
 _final: prev: {
   pythonPackagesExtensions = (prev.pythonPackagesExtensions or [ ]) ++ [
     (_pyFinal: pyPrev: {
+      click = pyPrev.click.overridePythonAttrs (old: rec {
+        version = "8.4.2";
+        src = prev.fetchPypi {
+          pname = "click";
+          inherit version;
+          hash = "sha256-mmzqbmCxfr4KRMXMY22U8JvWYULBzX2LTNcxxJF6FfY=";
+        };
+      });
+
+      hf-xet = pyPrev.hf-xet.overridePythonAttrs (old: rec {
+        version = "1.5.2";
+        src = prev.fetchPypi {
+          pname = "hf-xet";
+          inherit version;
+          hash = "sha256-cwRL0xuuM8mEr4MtGcdSoN/7Z1GP7p3b2R1hbhEBz0c=";
+        };
+      });
+
+
       # vLLM main requires huggingface-hub >=1.28.0. The pinned nixpkgs
       # substrate is intentionally held stable for the XPU runtime and only
       # carries 1.26.0, so update this one pure-Python dependency in place.
