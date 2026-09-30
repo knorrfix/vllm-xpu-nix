@@ -73,7 +73,7 @@ pkgs.python312Packages.overrideScope (
 
       src = pkgs.fetchurl {
         url = "https://files.pythonhosted.org/packages/55/22/41fb05f1dc5fda2c468e05a41814c20859016c85117b66c8a257cae814f6/opentelemetry_semantic_conventions_ai-${version}-py3-none-any.whl";
-        hash = "sha256-jKbU0W+fPHb30zeMzCFNhvfUW5tJGBxa+uaghAczWTc=";
+        hash = "sha256-Ja6yK9JhVDtImKc4JAJtlncOU1EgnH0HoLExR2Kx9uQ=";
       };
 
       dependencies = with pyFinal; [
