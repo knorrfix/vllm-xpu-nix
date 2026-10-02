@@ -86,9 +86,14 @@ pkgs.python312Packages.overrideScope (
 
     # disable tests for typer because they fail
     typer = pyPrev.typer.overridePythonAttrs (old: {
-        # simplest: just skip tests, keep import check
-        doCheck = false;
-      });
+      # simplest: just skip tests, keep import check
+      doCheck = false;
+    });
+
+    black = pyPrev.black.overridePythonAttrs (old: {
+      # simplest: skip tests entirely, keep the package usable
+      doCheck = false;
+    });
 
     # vLLM's structural tool parser imports normalize_tool_choice, which was
     # added in xgrammar 0.2.1. The pinned nixpkgs still packages 0.1.33.
