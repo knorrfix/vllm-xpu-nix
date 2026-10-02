@@ -68,12 +68,12 @@ pkgs.python312Packages.overrideScope (
 
     opentelemetry-semantic-conventions-ai = pyFinal.buildPythonPackage rec {
       pname = "opentelemetry-semantic-conventions-ai";
-      version = "0.5.1";
+      version = "0.4.16";
       format = "wheel";
 
       src = pkgs.fetchurl {
         url = "https://files.pythonhosted.org/packages/55/22/41fb05f1dc5fda2c468e05a41814c20859016c85117b66c8a257cae814f6/opentelemetry_semantic_conventions_ai-${version}-py3-none-any.whl";
-        hash = "sha256-Ja6yK9JhVDtImKc4JAJtlncOU1EgnH0HoLExR2Kx9uQ=";
+        hash = "sha256-1d3Q3zh7lp2oLj4Ki3QV6R0vx84T3n78JpCnk5kysuA=";
       };
 
       dependencies = with pyFinal; [
