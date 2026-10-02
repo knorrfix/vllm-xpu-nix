@@ -8,7 +8,7 @@ _final: prev: {
     (_pyFinal: pyPrev: {
       click = pyPrev.click.overridePythonAttrs (old: rec {
         version = "8.4.2";
-        src = pkgs.fetchurl {
+        src = pyPrev.fetchurl {
           url = "https://files.pythonhosted.org/packages/fb/e2/79c688af8b210d232694e31e59da9f6ec747bae31c3f5946e4e9b98860d5/click-${version}-py3-none-any.whl";
           hash = "sha256-5vn2YTbIFnRbnWWBfakdYdlX+xbgLk3NBVJVPFoZe3Y=";
         };
@@ -16,7 +16,7 @@ _final: prev: {
 
       hf-xet = pyPrev.hf-xet.overridePythonAttrs (old: rec {
         version = "1.5.2";
-        src = pkgs.fetchurl {
+        src = pyPrev.fetchurl {
           url = "https://files.pythonhosted.org/packages/7b/d9/9e33981173dbaf194ba0015202b02d467b624d44d4eba89e1bf06c0d2995/hf_xet-${version}-cp314-cp314t-musllinux_1_2_x86_64.whl";
           hash = "sha256-45arD69imBma16lTBcPKhJjLgll4pkhb5tAFh+5OxXc=";
         };
