@@ -72,7 +72,7 @@ pkgs.python312Packages.overrideScope (
       format = "wheel";
 
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/55/22/41fb05f1dc5fda2c468e05a41814c20859016c85117b66c8a257cae814f6/opentelemetry_semantic_conventions_ai-${version}-py3-none-any.whl";
+        url="https://files.pythonhosted.org/packages/db/98/e8bf804f2351603b508abaa624096ba279f1d62c3104e7020b45ae938d54/opentelemetry_semantic_conventions_ai-${version}-py3-none-any.whl";
         hash = "sha256-1d3Q3zh7lp2oLj4Ki3QV6R0vx84T3n78JpCnk5kysuA=";
       };
 
