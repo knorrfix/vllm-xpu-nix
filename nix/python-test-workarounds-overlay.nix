@@ -9,8 +9,7 @@ _final: prev: {
       click = pyPrev.click.overridePythonAttrs (old: rec {
         version = "8.4.2";
         src = prev.fetchPypi {
-          pname = "click";
-          inherit version;
+          url = "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-${version}.tar.gz";
           hash = "sha256-mmzqbmCxfr4KRMXMY22U8JvWYULBzX2LTNcxxJF6FfY=";
         };
       });
@@ -18,8 +17,7 @@ _final: prev: {
       hf-xet = pyPrev.hf-xet.overridePythonAttrs (old: rec {
         version = "1.5.2";
         src = prev.fetchPypi {
-          pname = "hf-xet";
-          inherit version;
+          url = "https://files.pythonhosted.org/packages/63/39/67be8d71f900d9a55761b6022821d6679fb56c64f1b6063d5af2c2606727/hf_xet-${version}.tar.gz";
           hash = "sha256-cwRL0xuuM8mEr4MtGcdSoN/7Z1GP7p3b2R1hbhEBz0c=";
         };
       });
