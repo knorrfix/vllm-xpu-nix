@@ -44,6 +44,7 @@ pkgs.python312Packages.overrideScope (
         url="https://files.pythonhosted.org/packages/81/0d/13d1d239a25cbfb19e740db83143e95c772a1fe10202dda4b76792b114dd/starlette-${version}-py3-none-any.whl";
         hash = "sha256-ACnUPrPSc7xPg6CHILSRLqSwcQh6O0jbAbfIOfeVTXQ=";
       };
+    };
 
     mcp-v2 = pyFinal.buildPythonPackage rec {
       pname = "mcp";
