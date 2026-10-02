@@ -35,7 +35,7 @@ _final: prev: {
               hash = "sha256-45arD69imBma16lTBcPKhJjLgll4pkhb5tAFh+5OxXc=";
             };
 
-            #pythonImportsCheck = [ "hf_xet" ];
+            # TODO: pythonImportsCheck = [ "hf_xet" ];
           }
       ) { fetchurl = prev.fetchurl; };
 
