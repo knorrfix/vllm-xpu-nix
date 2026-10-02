@@ -28,6 +28,7 @@ _final: prev: {
           buildPythonPackage rec {
             pname = "hf-xet";
             version = "1.5.2";
+            format = "wheel";
 
             src = fetchurl {
               url = "https://files.pythonhosted.org/packages/7b/d9/9e33981173dbaf194ba0015202b02d467b624d44d4eba89e1bf06c0d2995/hf_xet-${version}-cp314-cp314t-musllinux_1_2_x86_64.whl";
