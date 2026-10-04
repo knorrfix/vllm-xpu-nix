@@ -83,11 +83,6 @@ python3Packages.buildPythonPackage (
 
   nativeBuildInputs =
   [
-    (python3Packages.writeShellScriptBin "cmake" ''
-      exec ${python3Packages.cmake}/bin/cmake \
-        -DFETCHCONTENT_SOURCE_DIR_onednn=${onednn-src} \
-        "$@"
-    '')
     ninja
     git
     autoPatchelfHook
@@ -101,6 +96,11 @@ python3Packages.buildPythonPackage (
     python3Packages.psutil
     python3Packages.cmake
     python3Packages.ninja
+    (python3Packages.writeShellScriptBin "cmake" ''
+      exec ${python3Packages.cmake}/bin/cmake \
+        -DFETCHCONTENT_SOURCE_DIR_onednn=${onednn-src} \
+        "$@"
+    '')
   ]
   ++ lib.optional useCcache ccache;
 
