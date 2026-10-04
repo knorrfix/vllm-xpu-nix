@@ -1,8 +1,8 @@
 diff --git a/cmake/Modules/FindoneDNN.cmake b/cmake/Modules/FindoneDNN.cmake
-index d91124f..469c12a 100644
+index d91124f..6ce5727 100644
 --- a/cmake/Modules/FindoneDNN.cmake
 +++ b/cmake/Modules/FindoneDNN.cmake
-@@ -17,7 +17,19 @@ if(NOT ONEDNN_FOUND)
+@@ -17,7 +17,20 @@ if(NOT ONEDNN_FOUND)
    if(POLICY CMP0169)
      cmake_policy(SET CMP0169 OLD)
    endif()
@@ -19,10 +19,11 @@ index d91124f..469c12a 100644
 +    set(onednn_POPULATED TRUE)
 +
 +  else()
++  message(STATUS "patch applyed, expected argument did not arrive in cmake")
    message(
      STATUS
        "oneDNN: fetching from ${ONEDNN_GIT_REPO} (commit: ${ONEDNN_GIT_TAG})")
-@@ -27,6 +39,7 @@ if(NOT ONEDNN_FOUND)
+@@ -27,6 +40,7 @@ if(NOT ONEDNN_FOUND)
      GIT_TAG ${ONEDNN_GIT_TAG}
      GIT_PROGRESS TRUE
      GIT_SHALLOW FALSE)
