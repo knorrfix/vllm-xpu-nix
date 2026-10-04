@@ -81,6 +81,10 @@ python3Packages.buildPythonPackage (
 
     inherit src;
 
+    cmakeFlags = [
+      "-DFETCHCONTENT_SOURCE_DIR_onednn=${onednn-src}"
+    ];
+
     nativeBuildInputs = [
       cmake
       ninja
