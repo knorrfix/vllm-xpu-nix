@@ -81,10 +81,10 @@ python3Packages.buildPythonPackage (
 
     inherit src;
 
-    nativeBuildInputs =
+  nativeBuildInputs =
   [
-    (pkgs.writeShellScriptBin "cmake" ''
-      exec ${pkgs.cmake}/bin/cmake \
+    (python3Packages.writeShellScriptBin "cmake" ''
+      exec ${python3Packages.cmake}/bin/cmake \
         -DFETCHCONTENT_SOURCE_DIR_onednn=${onednn-src} \
         "$@"
     '')
