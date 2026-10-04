@@ -13,7 +13,7 @@
     vllm-xpu-kernels-src = {
       type = "git";
       url = "https://github.com/vllm-project/vllm-xpu-kernels.git";
-      ref = "release/v0.1.10.1";
+      ref = "release/v0.1.10.2";
       submodules = true;
       flake = false;
     };
