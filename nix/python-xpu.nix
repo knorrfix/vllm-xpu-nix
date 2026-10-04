@@ -17,10 +17,6 @@ pkgs.python312Packages.overrideScope (
     triton = triton-xpu;
     torchvision = torchvision-xpu;
 
-    extraPackages = ps: [
-      ps.psutil
-    ];
-
     # vLLM 0.28 uses the MCP 2.0 split packages. nixpkgs still carries the
     # monolithic MCP 1.x SDK, so keep v2 under explicit sibling attributes: old
     # vLLM releases retain pyFinal.mcp while new callers select pyFinal.mcp-v2.
@@ -157,6 +153,7 @@ pkgs.python312Packages.overrideScope (
         (oldAttrs: {
           nativeCheckInputs = (oldAttrs.nativeCheckInputs or [ ]) ++ [ pkgs.openssl ];
           disabledTests = (oldAttrs.disabledTests or [ ]) ++ [ "test_quantization_enabled_disabled" ];
+          propagatedBuildInputs = (oldAttrs.propagatedBuildInputs or [ ]) ++ [ pyFinal.psutil ];
         });
   }
 )
