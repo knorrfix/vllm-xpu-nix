@@ -81,28 +81,23 @@ python3Packages.buildPythonPackage (
 
     inherit src;
 
-  nativeBuildInputs =
-  [
-    ninja
-    git
-    autoPatchelfHook
-    which
-    python3Packages.setuptools
-    python3Packages.setuptools-scm
-    python3Packages.wheel
-    python3Packages.packaging
-    python3Packages.jinja2
-    python3Packages.regex
-    python3Packages.psutil
-    python3Packages.cmake
-    python3Packages.ninja
-    (python3Packages.writeShellScriptBin "cmake" ''
-      exec ${python3Packages.cmake}/bin/cmake \
-        -DFETCHCONTENT_SOURCE_DIR_onednn=${onednn-src} \
-        "$@"
-    '')
-  ]
-  ++ lib.optional useCcache ccache;
+    nativeBuildInputs = [
+      cmake
+      ninja
+      git
+      autoPatchelfHook
+      which
+      python3Packages.setuptools
+      python3Packages.setuptools-scm
+      python3Packages.wheel
+      python3Packages.packaging
+      python3Packages.jinja2
+      python3Packages.regex
+      python3Packages.psutil
+      python3Packages.cmake
+      python3Packages.ninja
+    ]
+    ++ lib.optional useCcache ccache;
 
     buildInputs = [
       stdenv.cc.cc.lib
@@ -160,7 +155,9 @@ python3Packages.buildPythonPackage (
       export CPATH=${stdenv.cc.libc.dev}/include:${level-zero}/include:$CPATH
       export CMAKE_PREFIX_PATH=${intel-oneapi-base}:$CMAKE_PREFIX_PATH
       export VLLM_CUTLASS_SRC_DIR=${cutlass-src}
-      export CMAKE_ARGS="-DFETCHCONTENT_SOURCE_DIR_ONEDNN=${onednn-src}"
+      export FETCHCONTENT_SOURCE_DIR_onednn=${onednn-src}
+      export EXTRA_CMAKE_ARGS="-DFETCHCONTENT_FULLY_DISCONNECTED=ON -DFETCHCONTENT_SOURCE_DIR_ONEDNN=${onednn-src}"
+      export FETCHCONTENT_FULLY_DISCONNECTED=ON
       export VLLM_XPU_AOT_DEVICES="${aotDevicesStr}"
       export VLLM_XPU_XE2_AOT_DEVICES="${aotDevicesStr}"
       export CMAKE_BUILD_TYPE=Release
