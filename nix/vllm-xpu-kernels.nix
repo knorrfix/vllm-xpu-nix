@@ -81,27 +81,28 @@ python3Packages.buildPythonPackage (
 
     inherit src;
 
-    cmakeFlags = [
-      "-DFETCHCONTENT_SOURCE_DIR_onednn=${onednn-src}"
-    ];
-
-    nativeBuildInputs = [
-      cmake
-      ninja
-      git
-      autoPatchelfHook
-      which
-      python3Packages.setuptools
-      python3Packages.setuptools-scm
-      python3Packages.wheel
-      python3Packages.packaging
-      python3Packages.jinja2
-      python3Packages.regex
-      python3Packages.psutil
-      python3Packages.cmake
-      python3Packages.ninja
-    ]
-    ++ lib.optional useCcache ccache;
+    nativeBuildInputs =
+  [
+    (pkgs.writeShellScriptBin "cmake" ''
+      exec ${pkgs.cmake}/bin/cmake \
+        -DFETCHCONTENT_SOURCE_DIR_onednn=${onednn-src} \
+        "$@"
+    '')
+    ninja
+    git
+    autoPatchelfHook
+    which
+    python3Packages.setuptools
+    python3Packages.setuptools-scm
+    python3Packages.wheel
+    python3Packages.packaging
+    python3Packages.jinja2
+    python3Packages.regex
+    python3Packages.psutil
+    python3Packages.cmake
+    python3Packages.ninja
+  ]
+  ++ lib.optional useCcache ccache;
 
     buildInputs = [
       stdenv.cc.cc.lib
