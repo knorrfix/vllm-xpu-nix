@@ -54,12 +54,12 @@ python3Packages.buildPythonPackage rec {
   # The earlier Inductor Min/Max gather regression has no identified source
   # fix, so the release gate still exercises compiled Qwen3.8 graph capture
   # and generation at vocabulary extent 248320 on Brutus.
-  version = "2.12.0+xpu";
+  version = "2.13.0+xpu";
   format = "wheel";
 
   src = fetchurl {
-    url = "https://download-r2.pytorch.org/whl/xpu/torch-2.12.0%2Bxpu-cp314-cp314t-linux_x86_64.whl";
-    hash = "sha256-tBC1GGz0VDOU42bFFa+jg52AhFSVsT758NluKJF9cNQ=";
+    url = "https://download-r2.pytorch.org/whl/xpu/torch-2.13.0%2Bxpu-cp312-cp312-manylinux_2_28_x86_64.whl";
+    hash = "sha256-njm89P85dNfX0fpOJOOuTkiV2pfYdkejDG8WG5E23fw=";
   };
 
   nativeBuildInputs = [
