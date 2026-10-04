@@ -121,7 +121,7 @@ python3Packages.buildPythonPackage (
     ];
 
     dependencies = [
-      kineto
+      python3Packages.kineto
     ];
 
     dontUseCmakeConfigure = true;
