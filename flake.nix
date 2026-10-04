@@ -41,7 +41,7 @@
     };
 
     sycl-tla-src = {
-      url = "github:intel/sycl-tla/87f6850680a580654b9ea2c80dbc01aeb36ad231";
+        url = "github:intel/sycl-tla/v0.5";
       flake = false;
     };
   };
