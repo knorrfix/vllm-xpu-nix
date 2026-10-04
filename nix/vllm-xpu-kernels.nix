@@ -126,7 +126,7 @@ python3Packages.buildPythonPackage (
     #  ./patches/0001-split-kernel-libs.patch
     #  ./patches/0004-skip-prebuilt-additional-libs.patch
     #  ./patches/0006-forward-mhc-feature-flag.patch
-       ./patches/0007-fix-sourcepath-oneDNN.patch
+    #   ./patches/0007-fix-sourcepath-oneDNN.patch
     ];
 
     postPatch = ''
@@ -155,10 +155,7 @@ python3Packages.buildPythonPackage (
       export CPATH=${stdenv.cc.libc.dev}/include:${level-zero}/include:$CPATH
       export CMAKE_PREFIX_PATH=${intel-oneapi-base}:$CMAKE_PREFIX_PATH
       export VLLM_CUTLASS_SRC_DIR=${cutlass-src}
-      export FETCHCONTENT_SOURCE_DIR_onednn=${onednn-src}
-      export FETCHCONTENT_SOURCE_DIR_oneDNN=${onednn-src}
-      export FETCHCONTENT_SOURCE_DIR_ONEDNN=${onednn-src}
-      export FETCHCONTENT_FULLY_DISCONNECTED=ON
+      export CMAKE_ARGS="-DFETCHCONTENT_SOURCE_DIR_ONEDNN=${onednn-src}"
       export VLLM_XPU_AOT_DEVICES="${aotDevicesStr}"
       export VLLM_XPU_XE2_AOT_DEVICES="${aotDevicesStr}"
       export CMAKE_BUILD_TYPE=Release
