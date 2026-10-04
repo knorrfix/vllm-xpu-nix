@@ -185,22 +185,26 @@
             src = vllm-xpu-kernels-src';
             version = kernelsStableVersion;
             sourceRevision = sourceRevision vllm-xpu-kernels-src;
+            useCcache = false;
           };
           unstableLibs = mkKernelLibs {
             src = vllm-xpu-kernels-unstable-src';
             version = kernelsUnstableVersion;
             sourceRevision = sourceRevision vllm-xpu-kernels-unstable-src;
+            useCcache = false;
           };
 
           vllm-xpu-kernels = mkVllmXpuKernels {
             src = vllm-xpu-kernels-src';
             version = kernelsStableVersion;
             sourceRevision = sourceRevision vllm-xpu-kernels-src;
+            useCcache = false;
           };
           vllm-xpu-kernels-unstable = mkVllmXpuKernels {
             src = vllm-xpu-kernels-unstable-src';
             version = kernelsUnstableVersion;
             sourceRevision = sourceRevision vllm-xpu-kernels-unstable-src;
+            useCcache = false;
           };
 
           mkVllm = import ./nix/mk-vllm.nix {
