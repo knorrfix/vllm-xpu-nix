@@ -97,6 +97,10 @@ python3Packages.buildPythonPackage rec {
 
   dontStrip = true;
 
+      preBuild = ''
+      export XPU_ENABLE_KINETO=ON
+    '';
+
   postInstall = ''
     metadata="$out/${python3Packages.python.sitePackages}/torch-${version}.dist-info/METADATA"
     if [ -f "$metadata" ]; then
