@@ -169,7 +169,8 @@ python3Packages.buildPythonPackage (
       ${lib.optionalString withGroupedGemmXe2Library "export VLLM_XPU_PREBUILT_GROUPED_GEMM_XE_2_LIB=${grouped-gemm-xe-2}/lib/libgrouped_gemm_xe_2.so"}
       ${lib.optionalString withGroupedGemmXeDefaultLibrary "export VLLM_XPU_PREBUILT_GROUPED_GEMM_XE_DEFAULT_LIB=${grouped-gemm-xe-default}/lib/libgrouped_gemm_xe_default.so"}
 
-      export MAX_JOBS=''${NIX_BUILD_CORES:-1}
+      #use one job in parallel because of ram constrains
+      export MAX_JOBS="1"
     '';
 
     autoPatchelfIgnoreMissingDeps = [
