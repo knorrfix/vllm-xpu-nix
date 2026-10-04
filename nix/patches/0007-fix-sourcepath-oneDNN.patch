@@ -7,11 +7,11 @@ index d91124f..011fb89 100644
      cmake_policy(SET CMP0169 OLD)
    endif()
 +  # --- Local oneDNN override for Nix ---
-+  if(DEFINED FETCHCONTENT_SOURCE_DIR_onednn)
-+    message(STATUS "oneDNN: using local source at ${FETCHCONTENT_SOURCE_DIR_onednn}")
++  if(DEFINED FETCHCONTENT_SOURCE_DIR_ONEDNN)
++    message(STATUS "oneDNN: using local source at ${FETCHCONTENT_SOURCE_DIR_ONEDNN}")
  
-+    set(onednn_SOURCE_DIR ${FETCHCONTENT_SOURCE_DIR_onednn})
-+    set(onednn_BINARY_DIR ${FETCHCONTENT_SOURCE_DIR_onednn}/build)
++    set(onednn_SOURCE_DIR ${FETCHCONTENT_SOURCE_DIR_ONEDNN})
++    set(onednn_BINARY_DIR ${FETCHCONTENT_SOURCE_DIR_ONEDNN}/build)
 +    set(onednn_POPULATED TRUE)
 +
 +  else()
