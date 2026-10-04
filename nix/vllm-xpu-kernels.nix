@@ -120,10 +120,6 @@ python3Packages.buildPythonPackage (
       torch-xpu
     ];
 
-    dependencies = [
-      python3Packages.kineto
-    ];
-
     dontUseCmakeConfigure = true;
 
     patches = [
