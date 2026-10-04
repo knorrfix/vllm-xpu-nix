@@ -13,7 +13,7 @@
     vllm-xpu-kernels-src = {
       type = "git";
       url = "https://github.com/vllm-project/vllm-xpu-kernels.git";
-      ref = "release/v0.1.11";
+      ref = "release/v0.1.10.1";
       submodules = true;
       flake = false;
     };
@@ -41,7 +41,7 @@
     };
 
     sycl-tla-src = {
-      url = "github:intel/sycl-tla/a08c4294b89ebe5e8ce3be0912f8338ccfb33477";
+      url = "github:intel/sycl-tla/cd763790ad2f74d7294435ecf77682bac0062c3a";
       flake = false;
     };
   };
