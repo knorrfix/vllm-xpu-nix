@@ -2,28 +2,27 @@ diff --git a/cmake/Modules/FindoneDNN.cmake b/cmake/Modules/FindoneDNN.cmake
 index 0000000..1111111 100644
 --- a/cmake/Modules/FindoneDNN.cmake
 +++ b/cmake/Modules/FindoneDNN.cmake
-@@ -16,6 +16,22 @@ if(NOT ONEDNN_FOUND)
+@@ -13,6 +13,20 @@ if(NOT ONEDNN_FOUND)
+   include(FetchContent)
+
    if(POLICY CMP0169)
      cmake_policy(SET CMP0169 OLD)
    endif()
-+
+
 +  # --- Local oneDNN override for Nix ---
 +  if(DEFINED FETCHCONTENT_SOURCE_DIR_onednn)
 +    message(STATUS "oneDNN: using local source at ${FETCHCONTENT_SOURCE_DIR_onednn}")
 +
-+    # Pretend FetchContent has already populated the project
 +    set(onednn_SOURCE_DIR ${FETCHCONTENT_SOURCE_DIR_onednn})
 +    set(onednn_BINARY_DIR ${FETCHCONTENT_SOURCE_DIR_onednn}/build)
 +    set(onednn_POPULATED TRUE)
 +
 +  else()
- 
+
    message(
      STATUS
        "oneDNN: fetching from ${ONEDNN_GIT_REPO} (commit: ${ONEDNN_GIT_TAG})")
-   FetchContent_Declare(
-     oneDNN
-     GIT_REPOSITORY ${ONEDNN_GIT_REPO}
+@@ -23,6 +37,7 @@ if(NOT ONEDNN_FOUND)
      GIT_TAG ${ONEDNN_GIT_TAG}
      GIT_PROGRESS TRUE
      GIT_SHALLOW FALSE)
