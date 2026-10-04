@@ -118,8 +118,8 @@ stdenv.mkDerivation (
     inherit src;
 
     patches = [
-      ./patches/0001-split-kernel-libs.patch
-      ./patches/0005-reduce-kernel-build-memory.patch
+      #./patches/0001-split-kernel-libs.patch
+      #./patches/0005-reduce-kernel-build-memory.patch
       # The former 0007-fa2-dtype-split / 0008-fa2-dispatcher-split patches
       # were dropped: upstream #324 ("refactor template gen") rewrote
       # chunk_prefill_configure.cmake to emit one TU per kernel variant, so
