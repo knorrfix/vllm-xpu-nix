@@ -353,7 +353,7 @@ let
             VLLM_XPU_ENABLE_XE3P = false;
             VLLM_XPU_ENABLE_XE_DEFAULT = true;
             BASIC_KERNELS_ENABLED = true;
-            FA2_KERNELS_ENABLED = false;
+            FA2_KERNELS_ENABLED = true;
             MOE_KERNELS_ENABLED = true;
             GDN_KERNELS_ENABLED = true;
             MQA_LOGITS_KERNELS_ENABLED = true;
