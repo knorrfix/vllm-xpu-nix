@@ -1,3 +1,25 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 828257b..848338b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -150,7 +150,16 @@ message(STATUS "  XPUMEM_ALLOCATOR_ENABLED     = ${XPUMEM_ALLOCATOR_ENABLED}")
+ message(STATUS "  VLLM_PAGED_DECODE_CONFIG     = ${VLLM_PAGED_DECODE_CONFIG}")
+ message(STATUS "  VLLM_CHUNK_PREFILL_CONFIG    = ${VLLM_CHUNK_PREFILL_CONFIG}")
+ message(STATUS "")
+-
++message(STATUS "CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
++message(STATUS "CMAKE_CURRENT_SOURCE_DIR: ${CMAKE_CURRENT_SOURCE_DIR}")
++message(STATUS "CMAKE_BINARY_DIR: ${CMAKE_BINARY_DIR}")
++message(STATUS "")
++message(STATUS "tree path:")
++execute_process(COMMAND tree csrc)
++message(STATUS "")
++message(STATUS "tree source:")
++execute_process(COMMAND tree /build/source/csrc)
++message(STATUS "")
+ #
+ # Try to find python package with an executable that exactly matches
+ # `VLLM_PYTHON_EXECUTABLE` and is one of the supported versions.
 diff --git a/cmake/Modules/FindoneDNN.cmake b/cmake/Modules/FindoneDNN.cmake
 index d91124f..196a2a4 100644
 --- a/cmake/Modules/FindoneDNN.cmake
