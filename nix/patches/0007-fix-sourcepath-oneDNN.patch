@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 828257b..774577b 100644
+index 828257b..9a967bf 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -150,7 +150,47 @@ message(STATUS "  XPUMEM_ALLOCATOR_ENABLED     = ${XPUMEM_ALLOCATOR_ENABLED}")
+@@ -150,7 +150,46 @@ message(STATUS "  XPUMEM_ALLOCATOR_ENABLED     = ${XPUMEM_ALLOCATOR_ENABLED}")
  message(STATUS "  VLLM_PAGED_DECODE_CONFIG     = ${VLLM_PAGED_DECODE_CONFIG}")
  message(STATUS "  VLLM_CHUNK_PREFILL_CONFIG    = ${VLLM_CHUNK_PREFILL_CONFIG}")
  message(STATUS "")
@@ -26,7 +26,6 @@ index 828257b..774577b 100644
 +        list(GET CHILDREN ${INDEX} CHILD)
  
 +        get_filename_component(NAME "${CHILD}" NAME)
-+        get_filename_component(TYPE "${CHILD}" TYPE)
 +
 +        if(${INDEX} EQUAL ${LAST_INDEX})
 +            set(BRANCH "ΓööΓöÇΓöÇ ")
