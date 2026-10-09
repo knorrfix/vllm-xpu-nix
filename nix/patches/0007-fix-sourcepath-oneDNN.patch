@@ -1,28 +1,20 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 828257b..787217d 100644
+index 828257b..6550ab9 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -150,7 +150,29 @@ message(STATUS "  XPUMEM_ALLOCATOR_ENABLED     = ${XPUMEM_ALLOCATOR_ENABLED}")
+@@ -150,7 +150,20 @@ message(STATUS "  XPUMEM_ALLOCATOR_ENABLED     = ${XPUMEM_ALLOCATOR_ENABLED}")
  message(STATUS "  VLLM_PAGED_DECODE_CONFIG     = ${VLLM_PAGED_DECODE_CONFIG}")
  message(STATUS "  VLLM_CHUNK_PREFILL_CONFIG    = ${VLLM_CHUNK_PREFILL_CONFIG}")
  message(STATUS "")
+-
 +message(STATUS "CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
 +message(STATUS "CMAKE_CURRENT_SOURCE_DIR: ${CMAKE_CURRENT_SOURCE_DIR}")
 +message(STATUS "CMAKE_BINARY_DIR: ${CMAKE_BINARY_DIR}")
 +message(STATUS "")
 +message(STATUS "tree path:")
 +execute_process(
-+  COMMAND ls -aR csrc
++  COMMAND ls -aRm csrc
 +  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}             
-+  OUTPUT_VARIABLE outputs)
-+string(REPLACE "\n" ";" outputs "${outputs}")
-+foreach(line IN LISTS outputs)
-+  message(STATUS "${line}")
-+endforeach()
- 
-+message(STATUS "")
-+message(STATUS "tree source:")
-+execute_process(COMMAND ls -aR /build/source/csrc
 +  OUTPUT_VARIABLE outputs)
 +string(REPLACE "\n" ";" outputs "${outputs}")
 +foreach(line IN LISTS outputs)
