@@ -1,25 +1,51 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 828257b..16e48e1 100644
+index 828257b..3f06009 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -150,7 +150,20 @@ message(STATUS "  XPUMEM_ALLOCATOR_ENABLED     = ${XPUMEM_ALLOCATOR_ENABLED}")
+@@ -150,7 +150,47 @@ message(STATUS "  XPUMEM_ALLOCATOR_ENABLED     = ${XPUMEM_ALLOCATOR_ENABLED}")
  message(STATUS "  VLLM_PAGED_DECODE_CONFIG     = ${VLLM_PAGED_DECODE_CONFIG}")
  message(STATUS "  VLLM_CHUNK_PREFILL_CONFIG    = ${VLLM_CHUNK_PREFILL_CONFIG}")
  message(STATUS "")
--
 +message(STATUS "CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
 +message(STATUS "CMAKE_CURRENT_SOURCE_DIR: ${CMAKE_CURRENT_SOURCE_DIR}")
 +message(STATUS "CMAKE_BINARY_DIR: ${CMAKE_BINARY_DIR}")
 +message(STATUS "")
 +message(STATUS "tree path:")
-+execute_process(
-+  COMMAND "ls" "-AR" "-1" "csrc"
-+  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}             
-+  OUTPUT_VARIABLE outputs)
-+string(REPLACE "\n" ";" outputs "${outputs}")
-+foreach(line IN LISTS outputs)
-+  message(STATUS "${line}")
-+endforeach()
++
++set(ROOT "csrc")
++
++# Recursive function
++function(print_tree DIR PREFIX)
++    # List directories and files
++    file(GLOB CHILDREN LIST_DIRECTORIES true "${DIR}/*")
++
++    list(LENGTH CHILDREN COUNT)
++    math(EXPR LAST_INDEX "${COUNT} - 1")
++
++    foreach(INDEX RANGE ${LAST_INDEX})
++        list(GET CHILDREN ${INDEX} CHILD)
+ 
++        get_filename_component(NAME "${CHILD}" NAME)
++        get_filename_component(TYPE "${CHILD}" TYPE)
++
++        if(${INDEX} EQUAL ${LAST_INDEX})
++            set(BRANCH "ΓööΓöÇΓöÇ ")
++            set(NEXT_PREFIX "${PREFIX}    ")
++        else()
++            set(BRANCH "Γö£ΓöÇΓöÇ ")
++            set(NEXT_PREFIX "${PREFIX}Γöé   ")
++        endif()
++
++        message("${PREFIX}${BRANCH}${NAME}")
++
++        if(TYPE STREQUAL "DIRECTORY")
++            print_tree("${CHILD}" "${NEXT_PREFIX}")
++        endif()
++    endforeach()
++endfunction()
++
++message("${ROOT}")
++print_tree("${ROOT}" "")
 +message(STATUS "")
  #
  # Try to find python package with an executable that exactly matches
