@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 828257b..6550ab9 100644
+index 828257b..248f2da 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -150,7 +150,20 @@ message(STATUS "  XPUMEM_ALLOCATOR_ENABLED     = ${XPUMEM_ALLOCATOR_ENABLED}")
@@ -13,7 +13,7 @@ index 828257b..6550ab9 100644
 +message(STATUS "")
 +message(STATUS "tree path:")
 +execute_process(
-+  COMMAND ls -aRm csrc
++  COMMAND ls -AR -1 csrc
 +  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}             
 +  OUTPUT_VARIABLE outputs)
 +string(REPLACE "\n" ";" outputs "${outputs}")
