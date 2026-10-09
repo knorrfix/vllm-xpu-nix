@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 828257b..3f06009 100644
+index 828257b..774577b 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -150,7 +150,47 @@ message(STATUS "  XPUMEM_ALLOCATOR_ENABLED     = ${XPUMEM_ALLOCATOR_ENABLED}")
@@ -38,7 +38,7 @@ index 828257b..3f06009 100644
 +
 +        message("${PREFIX}${BRANCH}${NAME}")
 +
-+        if(TYPE STREQUAL "DIRECTORY")
++        if(IS_DIRECTORY ${CHILD})
 +            print_tree("${CHILD}" "${NEXT_PREFIX}")
 +        endif()
 +    endforeach()
