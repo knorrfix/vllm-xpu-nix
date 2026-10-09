@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 828257b..848338b 100644
+index 828257b..86a2418 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -150,7 +150,16 @@ message(STATUS "  XPUMEM_ALLOCATOR_ENABLED     = ${XPUMEM_ALLOCATOR_ENABLED}")
@@ -12,10 +12,10 @@ index 828257b..848338b 100644
 +message(STATUS "CMAKE_BINARY_DIR: ${CMAKE_BINARY_DIR}")
 +message(STATUS "")
 +message(STATUS "tree path:")
-+execute_process(COMMAND tree csrc)
++execute_process(COMMAND ls -aR csrc)
 +message(STATUS "")
 +message(STATUS "tree source:")
-+execute_process(COMMAND tree /build/source/csrc)
++execute_process(COMMAND ls -aR /build/source/csrc)
 +message(STATUS "")
  #
  # Try to find python package with an executable that exactly matches
