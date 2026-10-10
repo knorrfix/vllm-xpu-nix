@@ -123,10 +123,10 @@ python3Packages.buildPythonPackage (
     dontUseCmakeConfigure = true;
 
     patches = [
-    #  ./patches/0001-split-kernel-libs.patch
-    #  ./patches/0004-skip-prebuilt-additional-libs.patch
-    #  ./patches/0006-forward-mhc-feature-flag.patch
-       ./patches/0007-fix-sourcepath-oneDNN.patch
+      ./patches/0001-split-kernel-libs.patch
+      ./patches/0004-skip-prebuilt-additional-libs.patch
+      ./patches/0006-forward-mhc-feature-flag.patch
+      ./patches/0007-fix-sourcepath-oneDNN.patch
     ];
 
     postPatch = ''
