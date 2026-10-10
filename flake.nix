@@ -29,7 +29,7 @@
     vllm-xpu-src = {
       type = "git";
       url = "https://github.com/vllm-project/vllm.git";
-      ref = "refs/heads/releases/v0.25.0";
+      ref = "refs/heads/releases/v0.31.0";
       flake = false;
     };
 
