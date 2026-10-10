@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 828257b..9a967bf 100644
+index 828257b..cddb4b0 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -150,7 +150,46 @@ message(STATUS "  XPUMEM_ALLOCATOR_ENABLED     = ${XPUMEM_ALLOCATOR_ENABLED}")
@@ -28,11 +28,11 @@ index 828257b..9a967bf 100644
 +        get_filename_component(NAME "${CHILD}" NAME)
 +
 +        if(${INDEX} EQUAL ${LAST_INDEX})
-+            set(BRANCH "ΓööΓöÇΓöÇ ")
++            set(BRANCH "|-- ")
 +            set(NEXT_PREFIX "${PREFIX}    ")
 +        else()
-+            set(BRANCH "Γö£ΓöÇΓöÇ ")
-+            set(NEXT_PREFIX "${PREFIX}Γöé   ")
++            set(BRANCH "|-- ")
++            set(NEXT_PREFIX "${PREFIX}|   ")
 +        endif()
 +
 +        message("${PREFIX}${BRANCH}${NAME}")
